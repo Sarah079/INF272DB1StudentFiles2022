@@ -11,7 +11,7 @@ namespace INF272DB1StudentFiles2022.Controllers
     public class HomeController : Controller
     {
         private DataService dataService = DataService.getDataService();
-        SqlConnection myConnection = new SqlConnection(("Data Source=.;Initial Catalog RandomNames;Integrated Security=True"));
+        SqlConnection myConnection = new SqlConnection(("Data Source=.;Initial Catalog TouristSites;Integrated Security=True"));
 
         //complete the missing code and adjust given code where necessary
         public ActionResult Index()
@@ -19,7 +19,7 @@ namespace INF272DB1StudentFiles2022.Controllers
             List<string> DBdata = new List<string>();
             try
             {
-                SqlCommand mysqlCommand = new SqlCommand("", myConnection); //add DB 
+                SqlCommand mysqlCommand = new SqlCommand("SELECT * FROM TouristSites", myConnection); //add DB 
                 myConnection.Open();
                 SqlDataReader myReader = mysqlCommand.ExecuteReader();
                     while (myReader.Read())

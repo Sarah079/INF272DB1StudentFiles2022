@@ -29,7 +29,7 @@ namespace INF272DB1StudentFiles2022.Models
 
         public string getConnectionString()
         {
-            String connectionString = "Data Source=UP949045\\SQLEXPRESS;" //get actual soruce
+            String connectionString = "Data Source=TouristSites;" //get actual soruce
                 + "Integrated Security=true;"
                 + "Initial Catalog=272Demo18;";
             return connectionString;
@@ -89,7 +89,7 @@ namespace INF272DB1StudentFiles2022.Models
             try
             {
                 openConnection();
-                String cmd = "update SportsFans set Name = '" + someDest.Name + "', Surname = '" + someDest.Website + "' where id = " + someDest.ID + ";";
+                String cmd = "update TouristSites set Name = '" + someDest.Name + "', Website = '" + someDest.Website + "' where id = " + someDest.ID + ";";
                 SqlCommand command = new SqlCommand(cmd, currConnection);
                 command.ExecuteNonQuery();
                 status = true;
@@ -108,7 +108,7 @@ namespace INF272DB1StudentFiles2022.Models
         public void createDest(DestinationModel someDest)
         {
             openConnection();
-            String cmd = "INSERT INTO SportsFans(Name, Website) VALUES('" + someDest.Name + "', '" + someDest.Website + "');";
+            String cmd = "INSERT INTO TouristSites(Name, Website) VALUES('" + someDest.Name + "', '" + someDest.Website + "');";
             SqlCommand command = new SqlCommand(cmd, currConnection);
             command.ExecuteNonQuery();
             closeConnection();
